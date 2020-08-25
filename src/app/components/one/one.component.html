@@ -1,0 +1,22 @@
+<h1>Get Request</h1>
+
+<div *ngIf="products">
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Amount</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor="let p of products">
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.amount}}</td>
+            <td><button [routerLink]="['/product-details/'+p.id]" routerLinkActive="router-link-active" >Edit</button> <button (click)="deleteProduct(p.id)">Delete</button></td>
+        </tr>
+    </table>
+    <br>
+    <button [routerLink]="['/product-details/'+0]" routerLinkActive="router-link-active">Add Button</button>
+</div>

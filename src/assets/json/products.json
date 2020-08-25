@@ -1,0 +1,27 @@
+[
+    {
+        "id": 123,
+        "name": "Aaa",
+        "price": 19.99,
+        "amount": 100
+    },
+    {
+        "id": 124,
+        "name": "Bbb",
+        "price": 39.99,
+        "amount": 87
+    },
+    {
+        "id": 125,
+        "name": "Ccc",
+        "price": 39.99,
+        "amount": 66
+    },
+    {
+        "id": 126,
+        "name": "Dcc",
+        "price": 39.99,
+        "amount": 66
+    }
+
+]

@@ -1,0 +1,27 @@
+
+<div>
+    <h1>Product</h1>
+    <form #my_form="ngForm">
+
+        <input name="id" #product_id *ngIf="type==='Update'" [disabled]="type==='Update'" type="number" placeholder="id" [(ngModel)]="product.id" >
+        <br>
+        <input name="name" #product_name="ngModel" required minlength=2 pattern="^[A-Z].*" type="text" placeholder="name" [(ngModel)]="product.name">
+        <span *ngIf="product_name.errors?.required && product_name.touched">Minimal 2 characters is required!</span>
+        <span *ngIf="product_name.errors?.pattern">Invalid name - Must start with a capital letter</span>
+        <br>
+        <input name="amount" #product_amount="ngModel" required min="0" pattern="^(\d+)$" type="number" placeholder="amount" [(ngModel)]="product.amount">
+        <span *ngIf="product_amount.errors?.required && product_amount.touched">Missing Amount</span>
+        <span *ngIf="isNegative(product_amount.value)">Amount must be a positive value</span>
+        <span *ngIf="product_amount.errors?.pattern">Amount must be a perfect Number!</span>
+
+
+        <br>
+        <input name="price" #product_price="ngModel" required min="0" type="number"  step="0.5" placeholder="price" [(ngModel)]="product.price">
+        <span *ngIf="product_price.invalid && product_price.touched">Missing price</span>
+        <span *ngIf="isNegative(product_price.value)">Price must be a positive value</span>
+        <br>
+        <button [disabled]="!my_form.form.valid || (type==='Update' && !my_form.form.valid ) " (click)="addOrUpdateCustomer()" >{{type}}</button>
+
+    </form>
+</div>
+
